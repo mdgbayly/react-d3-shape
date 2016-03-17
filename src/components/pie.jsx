@@ -16,6 +16,7 @@ export default class Pie extends Component {
   static defaultProps = {
     onMouseOver: (d) => {},
     onMouseOut: (d) => {},
+    onClick: (d) => {},
     ...pieProps
   }
 
@@ -25,6 +26,10 @@ export default class Pie extends Component {
 
   triggerOut(data, e) {
     this.props.onMouseOut(e, data)
+  }
+
+  triggerClick(data, e) {
+    this.props.onClick(e, data)
   }
 
   mkSeries() {
@@ -112,12 +117,13 @@ export default class Pie extends Component {
 
             return (
               <g>
-                <path 
+                <path
                   key={i}
-                  d={arc(slice)} 
+                  d={arc(slice)}
                   style={{fill: slice.data.color, stroke: '#FFF', ...slice.data.style}}
                   onMouseOut={that.triggerOut.bind(this, slice)}
                   onMouseOver={that.triggerOver.bind(this, slice)}
+                  onClick={that.triggerClick.bind(this, slice)}
                   />
                 {
                   pieTextShow? (

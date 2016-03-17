@@ -101,6 +101,7 @@ var Container = React.createClass({
             chartSeries = {this.state.series}
             onMouseOver= {onMouseOver}
             onMouseOut= {onMouseOut}
+            onClick= {onClick}
           />
           {xgrid}
           {ygrid}

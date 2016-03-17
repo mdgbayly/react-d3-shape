@@ -50,7 +50,22 @@ var chartSeries = [
   y = function(d) {
     return +d;
   },
-  yTickFormat = d3.format(".2s");
+  yTickFormat = d3.format(".2s"),
+  onMouseOver = function(e, d) {
+    console.log(d);
+    console.log(e.clientX)
+    console.log(e.clientY)
+  },
+  onMouseOut = function(e, d) {
+    console.log(d);
+    console.log(e.clientX)
+    console.log(e.clientY)
+  },
+  onClick = function(e, d) {
+    console.log(d);
+    console.log(e.clientX)
+    console.log(e.clientY)
+  };
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -105,6 +120,9 @@ module.exports = React.createClass({
           >
           <BarStack
             chartSeries = {this.state.series}
+            onMouseOver= {onMouseOver}
+            onMouseOut= {onMouseOut}
+            onClick= {onClick}
           />
           <Xaxis style= {{
             "transform": "rotate(45deg)",
@@ -116,4 +134,3 @@ module.exports = React.createClass({
     )
   }
 })
-

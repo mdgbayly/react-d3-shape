@@ -51,7 +51,22 @@ var chartSeries = [
   y = function(d) {
     return +d;
   },
-  yTickFormat = d3.format(".2s");
+  yTickFormat = d3.format(".2s"),
+  onMouseOver = function(e, d) {
+    console.log(d);
+    console.log(e.clientX)
+    console.log(e.clientY)
+  },
+  onMouseOut = function(e, d) {
+    console.log(d);
+    console.log(e.clientX)
+    console.log(e.clientY)
+  },
+  onClick = function(e, d) {
+    console.log(d);
+    console.log(e.clientX)
+    console.log(e.clientY)
+  };
 
 var Container = React.createClass({
   getInitialState: function() {
@@ -106,6 +121,9 @@ var Container = React.createClass({
           >
           <BarGroup
             chartSeries = {this.state.series}
+            onMouseOver= {onMouseOver}
+            onMouseOut= {onMouseOut}
+            onClick= {onClick}
           />
         </Chart>
       </div>

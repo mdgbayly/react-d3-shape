@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf ./lib && BABEL_ENV=production ./node_modules/.bin/babel ./src --out-dir ./lib",
-    "prod": "BABEL_ENV=production NODE_ENV=0 webpack --config webpack.prod.config.js && BABEL_ENV=production NODE_ENV=1 webpack --config webpack.prod.config.js"
+    "build": "rm -rf ./lib && cross-env BABEL_ENV=production ./node_modules/.bin/babel ./src --out-dir ./lib",
+    "prod": "cross-env BABEL_ENV=production NODE_ENV=0 webpack --config webpack.prod.config.js && cross-env BABEL_ENV=production NODE_ENV=1 webpack --config webpack.prod.config.js"
   },
   "author": "ElixirDoc team",
   "license": "Apache 2.0",
@@ -27,6 +27,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "1.0.1",
     "babel-preset-stage-0": "^6.5.0",
+    "cross-env": "^1.0.7",
     "css-loader": "^0.18.0",
     "dsv-loader": "^1.0.0",
     "express": "^4.13.4",

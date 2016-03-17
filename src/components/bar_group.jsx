@@ -16,6 +16,7 @@ export default class BarGroup extends Component {
   static defaultProps = {
     onMouseOver: (d) => {},
     onMouseOut: (d) => {},
+    onClick: (d) => {},
     barClassName: 'react-d3-basic__bar_group'
   }
 
@@ -27,6 +28,9 @@ export default class BarGroup extends Component {
     this.props.onMouseOut(e, data)
   }
 
+  triggerClick(data, e) {
+    this.props.onClick(e, data)
+  }
 
   _mkBarGroup(dom) {
     const {
@@ -75,6 +79,7 @@ export default class BarGroup extends Component {
                     fill={barGroup.color}
                     onMouseOut={that.triggerOut.bind(this, bar)}
                     onMouseOver={that.triggerOver.bind(this, bar)}
+                    onClick={that.triggerClick.bind(this, bar)}
                     style={barGroup.style}
                   />
                 )

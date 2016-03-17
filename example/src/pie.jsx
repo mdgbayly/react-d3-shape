@@ -82,6 +82,9 @@ module.exports = React.createClass({
   onMouseOut: function(e) {
     console.log(e)
   },
+  onClick: function(e, data) {
+    console.log(e, data)
+  },
   render: function() {
 
     return (
@@ -99,6 +102,7 @@ module.exports = React.createClass({
             chartSeries= {this.state.series}
             onMouseOver= {this.onMouseOver}
             onMouseOut= {this.onMouseOut}
+            onClick= {this.onClick}
           />
         </ChartPie>
       </div>
